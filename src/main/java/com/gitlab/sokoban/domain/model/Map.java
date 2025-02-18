@@ -33,6 +33,6 @@ public class Map {
         if (o == null || getClass() != o.getClass()) return false;
         Map map = (Map) o;
 
-        return Arrays.equals(tiles, map.tiles);
+        return Arrays.deepEquals(tiles, map.tiles);
     }
 }
