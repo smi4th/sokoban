@@ -53,9 +53,13 @@ public class FrontDispatcher {
 
     @RequestMapping(path = "", method = RequestMethod.POST)
     String move(@RequestParam(value = "move", required = false) String move, Model model) throws Exception {
-        game.execute(Direction.valueOf(move));
-        model.addAttribute("Tiles", toDTO(game.current()));
-        return "index.html";
+        try {
+            game.execute(Direction.valueOf(move));
+            model.addAttribute("Tiles", toDTO(game.current()));
+            return "index.html";
+        } catch (Game.GameWonException e) {
+            return "redirect:/win";
+        }
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
@@ -65,7 +69,10 @@ public class FrontDispatcher {
         return "index.html";
     }
 
-
+    @RequestMapping(path = "win", method = RequestMethod.GET)
+    String win(Model model) throws Exception {
+        return "win.html";
+    }
 
 }
 

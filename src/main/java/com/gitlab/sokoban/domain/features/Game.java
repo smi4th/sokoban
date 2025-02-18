@@ -22,9 +22,14 @@ public class Game {
         sokoban.apply();
 
         if(sokoban.hasWon()){
-            throw new Exception("You win!");
+            throw new GameWonException();
         }
+    }
 
+    public static class GameWonException extends Exception {
+        public GameWonException() {
+            super("Game won!");
+        }
     }
 
 }
