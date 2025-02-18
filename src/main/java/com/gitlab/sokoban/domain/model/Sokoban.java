@@ -11,5 +11,11 @@ public class Sokoban {
         this.player = player;
     }
 
+    public Tile[][] getTiles(){
+        return this.map.getTiles();
+    }
 
+    public Size getSize(){
+        return this.map.getSize();
+    }
 }

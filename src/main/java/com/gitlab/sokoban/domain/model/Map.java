@@ -15,6 +15,14 @@ public class Map {
         return tiles[position.getY()][position.getX()];
     }
 
+    public Size getSize(){
+        return size;
+    }
+
+    public Tile[][] getTiles(){
+        return tiles;
+    }
+
     public boolean isWall(Position position) {
         return getTile(position).getState() == State.WALL;
     }
