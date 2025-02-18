@@ -3,19 +3,20 @@ package com.gitlab.sokoban.domain.model;
 import java.util.Arrays;
 
 public class Map {
-    private int width;
-    private int height;
-
+    private Size size;
     private Tile[][] tiles;
 
     public Map(int width, int height, Tile[][] tiles) {
-        this.width = width;
-        this.height = height;
+        this.size = new Size(width, height);
         this.tiles = tiles;
     }
 
     public Tile getTile(Position position) {
         return tiles[position.getY()][position.getX()];
+    }
+
+    public Size getSize() {
+        return size;
     }
 
     public boolean isWall(Position position) {
