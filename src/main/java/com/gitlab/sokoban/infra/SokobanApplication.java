@@ -14,6 +14,7 @@ import org.springframework.context.annotation.FilterType;
 		includeFilters = @ComponentScan.Filter(type=FilterType.ANNOTATION, classes={Feature.class, Stub.class})
 )
 
+
 @SpringBootApplication
 public class SokobanApplication {
 
