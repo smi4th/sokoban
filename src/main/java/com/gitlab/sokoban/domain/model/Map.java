@@ -26,6 +26,8 @@ public class Map {
     public boolean isWall(Position position) {
         return getTile(position).state() == State.WALL;
     }
+    public boolean isBox(Position position) { return getTile(position).getState() == State.BOX; }
+    public boolean isStoredBox(Position position) {return getTile(position).getState() == State.BOX_STORED; }
 
     public boolean inside(Position position) {
         return position.getX() >= 0 && position.getX() < size.getWidth() &&
