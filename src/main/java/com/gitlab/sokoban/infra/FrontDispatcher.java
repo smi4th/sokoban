@@ -1,11 +1,7 @@
 package com.gitlab.sokoban.infra;
 
 import com.gitlab.sokoban.domain.features.Game;
-import com.gitlab.sokoban.domain.model.Position;
-import com.gitlab.sokoban.domain.model.Size;
-import com.gitlab.sokoban.domain.model.Sokoban;
-import com.gitlab.sokoban.domain.model.Tile;
-import com.gitlab.sokoban.domain.model.State;
+import com.gitlab.sokoban.domain.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,13 +51,13 @@ public class FrontDispatcher {
     }
 
 
-//    @RequestMapping(path = "", method = RequestMethod.POST)
-//    String move(@RequestParam(value = "move", required = false) String move, Model model) {
-//        game.execute(Direction.valueOf(move));
-//        model.addAttribute("Tiles", toDTO(game.current()));
-//        return "index.html";
-//    }
-//
+    @RequestMapping(path = "", method = RequestMethod.POST)
+    String move(@RequestParam(value = "move", required = false) String move, Model model) throws Exception {
+        game.execute(Direction.valueOf(move));
+        model.addAttribute("Tiles", toDTO(game.current()));
+        return "index.html";
+    }
+
     @RequestMapping(path = "", method = RequestMethod.GET)
     String index(Model model) throws Exception {
         Sokoban current = game.current();

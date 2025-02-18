@@ -2,23 +2,23 @@ package com.gitlab.sokoban.domain.model;
 
 public enum Direction {
 
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT;
+    Up,
+    Down,
+    Left,
+    Right;
 
     public int getX(){
         return switch (this) {
-            case LEFT -> -1;
-            case RIGHT -> 1;
+            case Left -> -1;
+            case Right -> 1;
             default -> 0;
         };
     }
 
     public int getY(){
         return switch (this) {
-            case UP -> -1;
-            case DOWN -> 1;
+            case Up -> -1;
+            case Down -> 1;
             default -> 0;
         };
     }
