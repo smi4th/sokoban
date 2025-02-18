@@ -1,8 +1,8 @@
 package com.gitlab.sokoban.domain.model;
 
 public class Size {
-    private int width;
-    private int height;
+    public int width;
+    public int height;
 
     public Size(int width, int height) {
         this.width = width;

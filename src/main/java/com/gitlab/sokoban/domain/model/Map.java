@@ -24,7 +24,7 @@ public class Map {
     }
 
     public boolean isWall(Position position) {
-        return getTile(position).getState() == State.WALL;
+        return getTile(position).state() == State.WALL;
     }
 
     public boolean inside(Position position) {

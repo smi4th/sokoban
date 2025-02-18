@@ -1,24 +1,24 @@
 package com.gitlab.sokoban.domain.model;
 
 public class Tile {
-    private Position position;
-    private State state;
+    private Position tilePosition;
+    private State tileState;
 
     public Tile(Position position, State state) {
-        this.position = position;
-        this.state = state;
+        this.tilePosition = position;
+        this.tileState = state;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public State getState(){
-        return state;
+    public State state(){
+        return tileState;
     }
 
     public void setState(State newState){
-        state = newState;
+        tileState = newState;
+    }
+
+    public Position position(){
+        return tilePosition;
     }
 
     @Override
@@ -26,6 +26,6 @@ public class Tile {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tile tile = (Tile) o;
-        return position.equals(tile.position) && state.equals(tile.state);
+        return tilePosition.equals(tile.tilePosition) && tileState.equals(tile.tileState);
     }
 }

@@ -12,14 +12,27 @@ public class MapBuilder {
 
     public static Tile[][] toTiles(String map) {
         String[] lines = map.split("\n");
-        Tile[][] tiles = new Tile[lines.length][lines[0].length()];
+        int maxLineLength = 0;
+
+        for (String line : lines) {
+            if (line.length() > maxLineLength) {
+                maxLineLength = line.length();
+            }
+        }
+
+        Tile[][] tiles = new Tile[lines.length][maxLineLength];
         for (int y = 0; y < lines.length; y++) {
             for (int x = 0; x < lines[y].length(); x++) {
                 tiles[y][x] = new Tile(new Position(x, y), toState(lines[y].charAt(x)));
             }
+
+            for (int x = lines[y].length(); x < maxLineLength; x++) {
+                tiles[y][x] = new Tile(new Position(x, y), State.EMPTY);
+            }
         }
         return tiles;
     }
+
 
     private static State toState(char c) {
         return switch (c) {
