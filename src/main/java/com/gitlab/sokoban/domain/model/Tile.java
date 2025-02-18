@@ -16,4 +16,8 @@ public class Tile {
     public State getState(){
         return state;
     }
+
+    public void setState(State newState){
+        state = newState;
+    }
 }
