@@ -18,4 +18,5 @@ public class TestPosition {
         Position pos2 = new Position(2, 3);
         assertNotEquals(pos1, pos2, "Positions with different coordinates should not be equal");
     }
+
 }
