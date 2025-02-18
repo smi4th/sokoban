@@ -6,7 +6,8 @@ public class MapBuilder {
 
     public static Map build(String map) {
         Tile[][] tiles = toTiles(map);
-        return new Map(tiles[0].length, tiles.length, tiles);
+        Size size = new Size(tiles[0].length, tiles.length);
+        return new Map(size, tiles);
     }
 
     public static Tile[][] toTiles(String map) {

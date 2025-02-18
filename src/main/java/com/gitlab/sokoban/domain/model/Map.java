@@ -6,8 +6,8 @@ public class Map {
     private Size size;
     private Tile[][] tiles;
 
-    public Map(int width, int height, Tile[][] tiles) {
-        this.size = new Size(width, height);
+    public Map(Size size, Tile[][] tiles) {
+        this.size = size;
         this.tiles = tiles;
     }
 
@@ -15,17 +15,13 @@ public class Map {
         return tiles[position.getY()][position.getX()];
     }
 
-    public Size getSize() {
-        return size;
-    }
-
     public boolean isWall(Position position) {
         return getTile(position).getState() == State.WALL;
     }
 
     public boolean inside(Position position) {
-        return position.getX() >= 0 && position.getX() < width &&
-               position.getY() >= 0 && position.getY() < height;
+        return position.getX() >= 0 && position.getX() < size.getWidth() &&
+               position.getY() >= 0 && position.getY() < size.getHeight();
     }
 
     @Override
