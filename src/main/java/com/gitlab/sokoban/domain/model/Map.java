@@ -1,5 +1,7 @@
 package com.gitlab.sokoban.domain.model;
 
+import java.util.Arrays;
+
 public class Map {
     private int width;
     private int height;
@@ -23,5 +25,14 @@ public class Map {
     public boolean inside(Position position) {
         return position.getX() >= 0 && position.getX() < width &&
                position.getY() >= 0 && position.getY() < height;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Map map = (Map) o;
+
+        return Arrays.equals(tiles, map.tiles);
     }
 }
